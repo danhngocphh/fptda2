@@ -6,7 +6,7 @@ import (
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql" // configures mysql driver
-	"github.com/velopert/gin-rest-api-sample/database/models"
+	"github.com/danhngocphh/fptda2/database/models"
 )
 
 // Initialize initializes the database
