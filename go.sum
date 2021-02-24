@@ -37,8 +37,8 @@ github.com/stretchr/testify v1.7.0 h1:nwc3DEeHmmLAfoZucVR881uASk0Mfjw8xYJ99tb5Cc
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/ugorji/go v1.1.1 h1:gmervu+jDMvXTbcHQ0pd2wee85nEoE0BsVyEuzkfK8w=
 github.com/ugorji/go v1.1.1/go.mod h1:hnLbHMwcvSihnDhEfx2/BzKp2xb0Y+ErdfYcrs9tkJQ=
-github.com/velopert/gin-rest-api-sample v0.0.0-20180731101943-f55a03f18d31 h1:LcF0YLI+5NTF66M6DxggiyRcdq+zC8RactpJpnQFNvc=
-github.com/velopert/gin-rest-api-sample v0.0.0-20180731101943-f55a03f18d31/go.mod h1:aV50ID9juxmxfr3Nlv0K29TRuaIusC8DZUfo7euZqZM=
+github.com/danhngocphh/fptda2 v0.0.0-20180731101943-f55a03f18d31 h1:LcF0YLI+5NTF66M6DxggiyRcdq+zC8RactpJpnQFNvc=
+github.com/danhngocphh/fptda2 v0.0.0-20180731101943-f55a03f18d31/go.mod h1:aV50ID9juxmxfr3Nlv0K29TRuaIusC8DZUfo7euZqZM=
 golang.org/x/crypto v0.0.0-20190325154230-a5d413f7728c h1:Vj5n4GlwjmQteupaxJ9+0FNOmBrHfq7vN4btdGoDZgI=
 golang.org/x/crypto v0.0.0-20190325154230-a5d413f7728c/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/net v0.0.0-20210222171744-9060382bd457 h1:hMm9lBjyNLe/c9C6bElQxp4wsrleaJn1vXMZIQkNN44=
