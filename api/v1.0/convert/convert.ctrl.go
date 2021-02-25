@@ -26,6 +26,10 @@ type User = models.User
 //get text
 
 func getConvert(c *gin.Context) {
+	w := c.Writer
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	w.Header().Add("Access-Control-Allow-Methods", "POST, OPTIONS, GET, DELETE, PUT")
 	// var convert Convert
 	type ReqBody struct {
 		Voice  string `json:"voice" binding:"required"`
@@ -39,24 +43,33 @@ func getConvert(c *gin.Context) {
 		Text    string `json:"text"`
 		Link    string `json:"link"`
 	}
+	type ErrBody struct {
+		Status  string `json:"status"`
+		Message string `json:"message"`
+	}
 	var reqBody ReqBody
 	if err := c.BindJSON(&reqBody); err != nil {
-		c.JSON(400, err)
+		errBody := &ErrBody{Status: "success", Message: err.Error()}
+		c.JSON(400, errBody)
 		return
 	}
 	body := strings.NewReader(reqBody.Text)
 	req, err := http.NewRequest("POST", "https://api.fpt.ai/hmi/tts/v5", body)
 	if err != nil {
-		c.JSON(400, err)
+		errBody := &ErrBody{Status: "failed", Message: err.Error()}
+		c.JSON(400, errBody)
+		return
 	}
 	req.Header.Set("api_key", os.Getenv("API_KEY"))
-	req.Header.Set("voice", "banmai")
+	req.Header.Set("voice", reqBody.Voice)
 	req.Header.Set("speed", "0")
-	req.Header.Set("format", "mp3")
+	req.Header.Set("format", reqBody.Format)
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		c.JSON(400, err)
+		errBody := &ErrBody{Status: "failed", Message: err.Error()}
+		c.JSON(400, errBody)
+		return
 	}
 	defer resp.Body.Close()
 	bodyBytes, err := ioutil.ReadAll(resp.Body)

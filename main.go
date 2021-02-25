@@ -3,11 +3,11 @@ package main
 import (
 	"os"
 
-	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 	"github.com/danhngocphh/fptda2/api"
 	"github.com/danhngocphh/fptda2/database"
 	"github.com/danhngocphh/fptda2/lib/middlewares"
+	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func main() {

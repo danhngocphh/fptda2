@@ -1,9 +1,9 @@
 package apiv1
 
 import (
-	"github.com/gin-gonic/gin"
 	"github.com/danhngocphh/fptda2/api/v1.0/auth"
 	"github.com/danhngocphh/fptda2/api/v1.0/convert"
+	"github.com/gin-gonic/gin"
 )
 
 func ping(c *gin.Context) {
