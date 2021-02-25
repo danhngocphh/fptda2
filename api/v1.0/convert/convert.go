@@ -10,7 +10,7 @@ func ApplyRoutes(r *gin.RouterGroup) {
 	convert := r.Group("/convert")
 	{
 		// posts.POST("/", middlewares.Authorized, create)
-		convert.GET("/", list)
+		convert.POST("/", getConvert)
 		// posts.GET("/:id", read)
 		// posts.DELETE("/:id", middlewares.Authorized, remove)
 		// posts.PATCH("/:id", middlewares.Authorized, update)
