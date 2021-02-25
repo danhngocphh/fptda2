@@ -9,7 +9,7 @@ import (
 type Convert struct {
 	voice   string `sql:"type:text;"`
 	text   string `sql:"type:text;"`
-	speed   string `sql:"type:number;"`
+	speed   int `sql:"type:int;"`
 	format   string `sql:"type:text;"`
 }
 
