@@ -7,18 +7,18 @@ import (
 
 // Post data model
 type Convert struct {
-	voice   string `sql:"type:text;"`
-	text   string `sql:"type:text;"`
-	speed   int `sql:"type:int;"`
-	format   string `sql:"type:text;"`
+	Voice   string `sql:"type:text;"`
+	Text   string `sql:"type:text;"`
+	Speed   int `sql:"type:int;"`
+	Format   string `sql:"type:text;"`
 }
 
 // Serialize serializes post data
 func (c Convert) Serialize() common.JSON {
 	return common.JSON{
-		"voice":       c.voice,
-		"text":       c.text,
-		"speed":       c.speed,
-		"format":       c.format,
+		"Voice":       c.Voice,
+		"Text":       c.Text,
+		"Speed":       c.Speed,
+		"Format":       c.Format,
 	}
 }
