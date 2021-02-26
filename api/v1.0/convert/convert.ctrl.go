@@ -2,6 +2,7 @@ package convert
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -34,8 +35,9 @@ type ErrBody = models.ErrBody
 func getConvert(c *gin.Context) {
 	w := c.Writer
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 	w.Header().Add("Access-Control-Allow-Methods", "POST, OPTIONS, GET, DELETE, PUT")
+	w.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+	fmt.Println(w)
 	var reqBody ReqBody
 	if err := c.BindJSON(&reqBody); err != nil {
 		errBody := &ErrBody{Status: "failed", Message: err.Error()}

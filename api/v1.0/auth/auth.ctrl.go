@@ -6,11 +6,11 @@ import (
 	"os"
 	"time"
 
+	"github.com/danhngocphh/fptda2/database/models"
+	"github.com/danhngocphh/fptda2/lib/common"
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
-	"github.com/danhngocphh/fptda2/database/models"
-	"github.com/danhngocphh/fptda2/lib/common"
 	"golang.org/x/crypto/bcrypt"
 )
 
