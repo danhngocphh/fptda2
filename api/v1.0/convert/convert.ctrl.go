@@ -15,13 +15,19 @@ import (
 )
 
 // Post type alias
-type Convert = models.Convert
+// type Convert = models.Convert
 
 // User type alias
-type User = models.User
+// type User = models.User
 
 // JSON type alias
 // type JSON = common.JSON
+
+// get struct
+
+type ReqBody = models.ReqBody
+type ResBody = models.ResBody
+type ErrBody = models.ErrBody
 
 //get text
 
@@ -30,27 +36,10 @@ func getConvert(c *gin.Context) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 	w.Header().Add("Access-Control-Allow-Methods", "POST, OPTIONS, GET, DELETE, PUT")
-	// var convert Convert
-	type ReqBody struct {
-		Voice  string `json:"voice" binding:"required"`
-		Text   string `json:"text" binding:"required"`
-		Speed  string `json:"speed" binding:"required"`
-		Format string `json:"format" binding:"required"`
-	}
-	type ResBody struct {
-		Status  string `json:"status"`
-		Message string `json:"message"`
-		Text    string `json:"text"`
-		Link    string `json:"link"`
-	}
-	type ErrBody struct {
-		Status  string `json:"status"`
-		Message string `json:"message"`
-	}
 	var reqBody ReqBody
 	if err := c.BindJSON(&reqBody); err != nil {
-		errBody := &ErrBody{Status: "success", Message: err.Error()}
-		c.JSON(200, errBody)
+		errBody := &ErrBody{Status: "failed", Message: err.Error()}
+		c.JSON(400, errBody)
 		return
 	}
 	body := strings.NewReader(reqBody.Text)
@@ -68,7 +57,7 @@ func getConvert(c *gin.Context) {
 	resp, err := client.Do(req)
 	if err != nil {
 		errBody := &ErrBody{Status: "failed", Message: err.Error()}
-		c.JSON(423, errBody)
+		c.JSON(400, errBody)
 		return
 	}
 	defer resp.Body.Close()
