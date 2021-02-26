@@ -50,7 +50,7 @@ func getConvert(c *gin.Context) {
 	var reqBody ReqBody
 	if err := c.BindJSON(&reqBody); err != nil {
 		errBody := &ErrBody{Status: "success", Message: err.Error()}
-		c.JSON(400, errBody)
+		c.JSON(200, errBody)
 		return
 	}
 	body := strings.NewReader(reqBody.Text)
@@ -68,7 +68,7 @@ func getConvert(c *gin.Context) {
 	resp, err := client.Do(req)
 	if err != nil {
 		errBody := &ErrBody{Status: "failed", Message: err.Error()}
-		c.JSON(400, errBody)
+		c.JSON(423, errBody)
 		return
 	}
 	defer resp.Body.Close()
